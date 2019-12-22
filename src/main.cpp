@@ -12,7 +12,7 @@ void delay(unsigned msec)
 
 int main()
 {
-    Pin<GPIOC, 13> led;
+    Pin<drivers::GPIOC, 13> led;
 
     while (true)
     {

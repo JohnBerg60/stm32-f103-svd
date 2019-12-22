@@ -1,7 +1,7 @@
 #include "drivers/register.hpp"
 #include "drivers/gpio.hpp"
 
-namespace HW
+namespace drivers
 {
 
 template <typename Port, unsigned pinnr>
@@ -36,4 +36,4 @@ struct Pin : public Register
     }
 };
 
-} // namespace HW
+} // namespace drivers

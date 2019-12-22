@@ -1,5 +1,8 @@
 #pragma once
 
+namespace device
+{
+
 struct RCC // Reset and clock control
 {
     enum : unsigned // Reset and clock control
@@ -17,3 +20,5 @@ struct RCC // Reset and clock control
         CSR = BASE + 0x24,      // Control/status register (RCC_CSR)
     };
 };
+
+} // namespace device

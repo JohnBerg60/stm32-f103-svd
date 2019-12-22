@@ -4,6 +4,9 @@
 #include "device/rcc.hpp"
 #include "device/gpio.hpp"
 
+namespace drivers
+{
+
 #define IOPCEN 1 << 4
 
 struct Port : public Register
@@ -14,7 +17,7 @@ struct GPIOC : public Port, public device::GPIOC
 {
     static void clockEnable()
     {
-        setbit<RCC::APB2ENR>(IOPCEN);
+        setbit<device::RCC::APB2ENR>(IOPCEN);
     }
 };
 
@@ -25,3 +28,5 @@ enum MODE : unsigned
     ALTERNATE = 0b10,
     ANALOG = 0b11
 };
+
+} // namespace drivers
