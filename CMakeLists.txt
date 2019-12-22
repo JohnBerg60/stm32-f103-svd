@@ -14,6 +14,8 @@ set(CFRELEASE "-Os")
 set(CFDEBUG "-Os")
 
 include(cmake/device.cmake)
+include(cmake/drivers.cmake)
+include(cmake/core.cmake)
 
 file(GLOB SOURCE_FILES CONFIGURE_DEPENDS "src/*.c" "src/*.cpp" "device/*.s")
 
