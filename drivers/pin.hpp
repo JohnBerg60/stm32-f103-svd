@@ -1,4 +1,4 @@
-#include "core/register.hpp"
+#include "drivers/register.hpp"
 #include "drivers/gpio.hpp"
 
 namespace HW
