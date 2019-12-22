@@ -1,10 +1,9 @@
-#include "register.hpp"
-#include "rcc.hpp"
+#pragma once
+
+#include "core/register.hpp"
+#include "device/rcc.hpp"
 
 #define IOPCEN 1 << 4
-
-namespace GPIO
-{
 
 struct Port : public Register
 {
@@ -33,23 +32,10 @@ struct GPIOC : public Port, public _GPIOC
     }
 };
 
-template <typename Port, unsigned pinnr>
-struct Pin : public Register
+enum MODE : unsigned
 {
-    Pin()
-    {
-        Port::clockEnable();
-    }
-
-    void set()
-    {
-        write<Port::BSRR>(1 << pinnr);
-    }
-
-    void clear()
-    {
-        write<Port::BSRR>(1 << pinnr << 16);
-    }
+    INPUT = 0b00,
+    OUTPUT = 0b01,
+    ALTERNATE = 0b10,
+    ANALOG = 0b11
 };
-
-} // namespace GPIO

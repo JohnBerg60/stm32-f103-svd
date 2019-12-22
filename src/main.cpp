@@ -1,6 +1,14 @@
-#include "gpio.hpp"
+#include "core/pin.hpp"
+#include "drivers/gpio.hpp"
 
-using namespace GPIO;
+// delay loop for 8 MHz CPU clock with optimizer enabled
+void delay(unsigned msec)
+{
+    for (unsigned j = 0; j < 2000UL * msec; j++)
+    {
+        asm("nop");
+    }
+}
 
 int main()
 {
@@ -8,7 +16,7 @@ int main()
 
     while (true)
     {
-        led.set();
-        led.clear();
+        led.toggle();
+        delay(200);
     }
 }

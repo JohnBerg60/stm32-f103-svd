@@ -1,3 +1,5 @@
+#pragma once
+
 struct RCC // Reset and clock control
 {
     enum : unsigned // Reset and clock control

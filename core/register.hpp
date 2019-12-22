@@ -1,3 +1,4 @@
+#pragma once
 
 struct Register
 {
@@ -19,6 +20,15 @@ struct Register
     {
         if (not mask)
             return;
-        write<Address, MaskType>(read<Address, MaskType>() bitor mask);
+        write<Address, MaskType>(read<Address>() bitor mask);
+    }
+
+    //clear all bit(s) in mask
+    template <unsigned Address, typename MaskType>
+    static constexpr void clearbit(const MaskType mask)
+    {
+        if (not mask)
+            return;
+        write<Address, MaskType>(read<Address>() bitand mask);
     }
 };
