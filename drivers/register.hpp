@@ -31,4 +31,13 @@ struct Register
             return;
         write<Address, MaskType>(read<Address>() bitand mask);
     }
+
+    //toggle all bit(s) in mask
+    template <unsigned Address, typename MaskType>
+    static constexpr void togglebit(const MaskType mask)
+    {
+        if (not mask)
+            return;
+        write<Address, MaskType>(read<Address, MaskType>() xor mask);
+    }
 };

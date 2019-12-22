@@ -29,6 +29,11 @@ struct Pin : public Register
     {
         return Register::read<Port::IDR>() bitand mask;
     }
+
+    void toggle()
+    {
+        write<Port::ODR>(mask);
+    }
 };
 
 } // namespace HW
