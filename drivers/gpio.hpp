@@ -17,7 +17,7 @@ struct GPIOC : public Port, public device::GPIOC
 {
     static void clockEnable()
     {
-        setbit<device::RCC::APB2ENR>(IOPCEN);
+        setbits<device::RCC::APB2ENR>(IOPCEN);
     }
 };
 

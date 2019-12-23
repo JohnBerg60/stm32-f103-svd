@@ -4,35 +4,35 @@
 namespace drivers
 {
 
-template <typename Port, unsigned pinnr>
+template <typename port, unsigned pinnr>
 struct Pin : public Register
 {
     static constexpr unsigned mask{1 << pinnr};
 
     Pin()
     {
-        Port::clockEnable();
-        write<Port::CRH>(1 << 20);
+        port::clockEnable();
+        regwrite<port::CRH>(1 << 20);
     }
 
     void set()
     {
-        write<Port::BSRR>(mask);
+        regwrite<port::BSRR>(mask);
     }
 
     void clear()
     {
-        write<Port::BSRR>(mask << 16);
+        regwrite<port::BSRR>(mask << 16);
     }
 
     bool read()
     {
-        return Register::read<Port::IDR>() bitand mask;
+        return regread<port::IDR>() bitand mask;
     }
 
     void toggle()
     {
-        write<Port::ODR>(mask);
+        togglebits<port::ODR>(mask);
     }
 };
 
