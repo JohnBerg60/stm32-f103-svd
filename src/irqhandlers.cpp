@@ -1,6 +1,6 @@
 #include "drivers/systick.hpp"
 
-unsigned volatile drivers::Systick::tickCount = 0;
+volatile unsigned int tickCount = 0;
 
 #ifdef __cplusplus
 extern "C"
@@ -9,7 +9,7 @@ extern "C"
 
     void SysTick_Handler(void)
     {
-        drivers::Systick::tick();
+        tickCount++;
     }
 
 #ifdef __cplusplus

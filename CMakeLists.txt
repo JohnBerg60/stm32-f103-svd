@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(MCU "cortex-m3")
 set(CFCOMMON "-mcpu=${MCU} -mthumb --specs=nano.specs --specs=nosys.specs -Wall -fmessage-length=0 -ffunction-sections -fdata-sections")
 set(CFRELEASE "-Os")
-set(CFDEBUG "-O0 -g")
+set(CFDEBUG "-O2 -g")
 
 SET(BASEPATH "${CMAKE_SOURCE_DIR}")
 INCLUDE_DIRECTORIES("${BASEPATH}")

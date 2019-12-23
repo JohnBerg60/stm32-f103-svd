@@ -18,6 +18,6 @@ int main()
     while (true)
     {
         led.toggle();
-        delay(1000);
+        delay(500);
     }
 }

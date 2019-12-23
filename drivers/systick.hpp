@@ -3,17 +3,15 @@
 #include "drivers/register.hpp"
 #include "device/systick.hpp"
 
+extern volatile unsigned int tickCount;
+
 using namespace device;
 
 namespace drivers
 {
 
-class Systick : public Register
+struct Systick : public Register
 {
-private:
-    volatile static unsigned tickCount;
-
-public:
     static void init(int HCLKFrequency, int Ticks)
     {
         regwrite<SYSTICK::LOAD>(HCLKFrequency / Ticks - 1UL);
